@@ -36,9 +36,10 @@ if (ADD) {
 
 //删除数据
 if (DELETE) {
+    var VALUES = ['2'];
     client.query(
         //DELETE FROM `cwcdb`.`person` WHERE `id`='2';
-        'DELETE FROM ' + TEST_DATABASE + '.' + TEST_TABLE + ' ' + 'WHERE id =' + 2
+        'DELETE FROM ' + TEST_DATABASE + '.' + TEST_TABLE + ' ' + 'WHERE id = ?', VALUES
     );
 }
 
