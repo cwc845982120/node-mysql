@@ -2,12 +2,12 @@ var mysql = require('mysql');
 var dbConfig = require('./dbConfig');
 
 //初始化数据
-var UPDATE = true;
+var UPDATE = false;
 var DELETE = false;
 var ADD = false;
 
-var TEST_DATABASE = 'cwcdb';
-var TEST_TABLE = 'person';
+var TEST_DATABASE = 'wensentDB';
+var TEST_TABLE = 'T_wensent';
 
 //使用config中文件配置创建连接
 var client = mysql.createConnection(dbConfig);
@@ -67,7 +67,7 @@ client.query(
         }
         if (results) {
             for (var i = 0; i < results.length; i++) {
-                console.log("%d\t%s\t%s", results[i].id, results[i].name, results[i].age);
+                console.log("%d\t%s\t%s\t%s", results[i].id, results[i].name, results[i].age, results[i].sex);
             }
         }
         client.end();
