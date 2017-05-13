@@ -7,12 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "node",
-    "mysql"
+    "mysql",
+    "node"
   ],
   "author": "caowencheng <845982120@qq.com>",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
     "mysql": "^2.13.0"
   }
 }
