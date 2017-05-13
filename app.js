@@ -1,9 +1,8 @@
 var express = require('express')
 var ejs = require('ejs')
 var path = require('path')
-var clientDB = require('./dao/dbclient')
+var client = require('./dao/dbclient').client
 var query = require('./dao/query').query
-var client = clientDB.client
 
 var PORT = process.env.PORT || 8080;
 var app = express();
@@ -38,15 +37,10 @@ app.get('/api/getData', function(req, res) {
                 return;
             }
             if (results) {
-                for (var i = 0; i < results.length; i++) {
-                    console.log("%d\t%s\t%s\t%s", results[i].id, results[i].name, results[i].age, results[i].sex);
-                }
                 data.success = true;
                 data.result = results;
                 res.send(data);
             }
-            //client.end();
-            //console.log('Connection closed');
         }
     );
 })

@@ -19,12 +19,8 @@ var query = function(params) {
                 console.log('Connection closed');
                 return;
             }
-            if (results) {
-                for (var i = 0; i < results.length; i++) {
-                    console.log("%d\t%s\t%s\t%s", results[i].id, results[i].name, results[i].age, results[i].sex);
-                }
-            }
         }
     );
 };
+
 exports.query = query;

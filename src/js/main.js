@@ -26,7 +26,6 @@
             url: 'http://localhost:8080/api/getData',
             method: 'GET'
         }).success(function(data) {
-            console.log(data);
             if (data.success) {
                 for (var i = 0; i < data.result.length; i++) {
                     var obj = {};
@@ -43,9 +42,11 @@
             }
         })
 
-        $('.checkbox').click(function(){
-            console.log(0);
-        })
+        setTimeout(function() {
+            $('.checkbox').click(function(e) {
+                console.log(e);
+            })
+        }, 0)
 
     })
 
