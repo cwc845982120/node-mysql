@@ -1,13 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-//解析cookie以及入参
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
 //处理数据库逻辑
 var client = require('../dao/dbclient').client
 var query = require('../dao/query').query
+
+//日志系统
+var logger = require('../log/log').logger
+var handleParams = require('../util/loggerHandle').handleParams
+var handleResults = require('../util/loggerHandle').handleResults
+var handleSql = require('../util/loggerHandle').handleSql
+
+//返回数据管理
+var back = require('../util/back').back
+var dbError = require('../util/back').dbError
 
 //初始化数据
 var DATABASE = 'wensentDB';
@@ -17,22 +23,23 @@ var TABLE = 'T_users';
 client.query("use " + DATABASE);
 
 router.post('/getData', function(req, res) {
-    var data = {};
+    logger.debug(handleParams('getData', req.body));
     //查询数据
     client.query(
         'SELECT * FROM ' + DATABASE + '.' + TABLE,
         function selectCb(err, results, fields) {
             if (err) {
-                console.log("ClientReady Error: " + error.message);
                 client.end();
-                data.success = false;
-                res.send(data);
+                logger.debug(handleSql('getData', 'SELECT * FROM ' + DATABASE + '.' + TABLE));
+                logger.error("ClientReady Error: " + error.message);
+                res.send(dbError());
                 return;
             }
             if (results) {
-                data.success = true;
-                data.result = results;
-                res.send(data);
+                back(results);
+                logger.debug(handleSql('getData', 'SELECT * FROM ' + DATABASE + '.' + TABLE));
+                logger.debug(handleResults('getData', back(results)));
+                res.send(back(results));
             }
         }
     );

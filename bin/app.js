@@ -4,6 +4,10 @@ var express = require('express')
 var ejs = require('ejs')
 var path = require('path')
 
+//解析cookie以及入参
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
 //路由
 var api = require('../route/api')
 
@@ -27,6 +31,7 @@ app.all('*', function(req, res, next) {
 app.engine('html', ejs.__express);
 app.set('view engine', 'html');
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 //请求部分
 //路由逻辑分配
