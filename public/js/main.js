@@ -23,8 +23,11 @@
         };
 
         $.ajax({
-            url: 'http://localhost:8080/api/getData',
-            method: 'GET'
+            url: 'http://192.168.3.200:8081/api/getData',
+            method: 'POST',
+            data: {
+                params: "cwc"
+            }
         }).success(function(data) {
             if (data.success) {
                 for (var i = 0; i < data.result.length; i++) {

@@ -1,11 +1,13 @@
-var express = require('express')
-var ejs = require('ejs')
-var path = require('path')
-var client = require('./dao/dbclient').client
-var query = require('./dao/query').query
+var express = require('express');
+var router = express.Router();
 
-var PORT = process.env.PORT || 8080;
-var app = express();
+//解析cookie以及入参
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+//处理数据库逻辑
+var client = require('../dao/dbclient').client
+var query = require('../dao/query').query
 
 //初始化数据
 var DATABASE = 'wensentDB';
@@ -14,16 +16,7 @@ var TABLE = 'T_users';
 //使用数据库名
 client.query("use " + DATABASE);
 
-app.engine('html', ejs.__express);
-app.set('view engine', 'html');
-app.use(express.static('src'))
-
-app.get('/', function(req, res) {
-    res.render('./index.html');
-})
-
-//获取数据
-app.get('/api/getData', function(req, res) {
+router.post('/getData', function(req, res) {
     var data = {};
     //查询数据
     client.query(
@@ -43,8 +36,6 @@ app.get('/api/getData', function(req, res) {
             }
         }
     );
-})
+});
 
-app.listen(PORT, function(res, req) {
-    console.log(`server is work on ${PORT}`);
-})
+module.exports = router;
