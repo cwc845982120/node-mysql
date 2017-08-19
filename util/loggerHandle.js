@@ -24,13 +24,13 @@ var handleResults = function(apiName, msg) {
     }
 }
 
-var handleSql = function(apiName, msg) {
+var handleSql = function(msg) {
     var backMsg = '';
     if (typeof msg == 'object') {
-        backMsg = apiName + ' ----sql---- ' + JSON.stringify(msg);
+        backMsg = ' ----sql---- ' + JSON.stringify(msg);
         return backMsg;
     } else if (typeof msg == 'string') {
-        backMsg = apiName + ' ----sql---- ' + msg;
+        backMsg = ' ----sql---- ' + msg;
         return backMsg;
     } else {
         return backMsg;

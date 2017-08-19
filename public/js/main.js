@@ -23,10 +23,10 @@
         };
 
         $.ajax({
-            url: 'http://192.168.3.200:8081/api/getData',
+            url: 'http://192.168.0.106:8081/api/getAllPeople',
             method: 'POST',
             data: {
-                params: "cwc"
+                id: ""
             }
         }).success(function(data) {
             if (data.success) {
