@@ -26,7 +26,7 @@ var query = function(params, callback) {
     if (params.id) {
         pool.getConnection(function(err, client) {
             if (err) {
-                logger.debug(handleSql('getData', 'SELECT * FROM ' + DATABASE + '.' + TABLE));
+                logger.debug(handleSql('SELECT * FROM ' + DATABASE + '.' + TABLE));
                 logger.error("ClientReady " + err);
                 //释放连接  
                 client.release();
@@ -48,7 +48,7 @@ var query = function(params, callback) {
     } else {
         pool.getConnection(function(err, client) {
             if (err) {
-                logger.debug(handleSql('getData', 'SELECT * FROM ' + DATABASE + '.' + TABLE));
+                logger.debug(handleSql('SELECT * FROM ' + DATABASE + '.' + TABLE));
                 logger.error("ClientReady " + err);
                 //释放连接  
                 client.release();

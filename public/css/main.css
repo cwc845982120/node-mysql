@@ -11,7 +11,9 @@
  * make sure we're resetting all spacing elements.
  *
  */
-html, body {
+
+html,
+body {
     height: 100%;
     border: 0;
     font-family: "Helvetica-Neue", "Helvetica", Arial, sans-serif;
@@ -20,17 +22,75 @@ html, body {
     padding: 0;
 }
 
-div, span, object, iframe, img, table, caption, thead, tbody,
-tfoot, tr, tr, td, article, aside, canvas, details, figure, hgroup, menu,
-nav, footer, header, section, summary, mark, audio, video {
+div,
+span,
+object,
+iframe,
+img,
+table,
+caption,
+thead,
+tbody,
+tfoot,
+tr,
+tr,
+td,
+article,
+aside,
+canvas,
+details,
+figure,
+hgroup,
+menu,
+nav,
+footer,
+header,
+section,
+summary,
+mark,
+audio,
+video {
     border: 0;
     margin: 0;
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cit, code,
-del, dfn, em, ins, q, samp, small, strong, sub, sup, b, i, hr, dl, dt, dd,
-ol, ul, li, fieldset, legend, label {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+cit,
+code,
+del,
+dfn,
+em,
+ins,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+b,
+i,
+hr,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+legend,
+label {
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
@@ -38,25 +98,31 @@ ol, ul, li, fieldset, legend, label {
     padding: 0;
 }
 
-article, aside, canvas, figure, figure img, figcaption, hgroup,
-footer, header, nav, section, audio, video {
+article,
+aside,
+canvas,
+figure,
+figure img,
+figcaption,
+hgroup,
+footer,
+header,
+nav,
+section,
+audio,
+video {
     display: block;
 }
 
-table {
-    border-collapse: separate;
-    border-spacing: 0;
-    caption, th, td {
-        text-align: left;
-        vertical-align: middle;
-    }
-}
-li{
+li {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
+    color: #000;
 }
+
 a img {
     border: 0;
 }
@@ -64,41 +130,39 @@ a img {
 :focus {
     outline: 0;
 }
-*{
+
+* {
     box-sizing: border-box;
 }
-textarea{
+
+textarea {
     resize: none;
-    appearance: none;
 }
-input{
-    appearance: none;
-}
-select {
-    appearance: none;
-    background-color: #fff;
-}
-.title{
+
+.title {
     height: 90px;
     line-height: 90px;
     width: 100%;
     text-align: center;
     font-size: 30px;
 }
-.btns{
+
+.btns {
     width: 100%;
     text-align: center;
 }
-.btn{
+
+.btn {
     text-align: center;
     float: left;
     height: 40px;
     line-height: 40px;
-    width: 25%;
+    width: 20%;
     margin-top: 20px;
     box-sizing: border-box;
 }
-.text{
+
+.text {
     height: 40px;
     line-height: 40px;
     width: 50%;
@@ -106,6 +170,7 @@ select {
     border: 1px #000 solid;
     border-radius: 5px;
 }
-td{
+
+td {
     text-align: center;
 }

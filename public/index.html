@@ -6,7 +6,13 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="./css/bootstrap-tab.min.css">
     <link rel="stylesheet" href="./css/sweetalert.css">
+    <link rel="stylesheet" href="./css/jquery.modal.min.css">
     <link rel="stylesheet" href="./css/main.css">
+    <style>
+        .pagination-detail {
+            text-align: center;
+        }
+    </style>
     <title>数据库增删改查</title>
 </head>
 
@@ -16,16 +22,37 @@
     </table>
     <div class="btns">
         <div class="btn add">
-            <div class="text">增加</div>
+            <a href="#add" rel="modal:open">
+                <div class="text">增加</div>
+            </a>
         </div>
         <div class="btn delete">
             <div class="text">删除</div>
         </div>
-        <div class="btn update">
-            <div class="text">修改</div>
+        <div class="btn">
+            <div class="text" id="updateData">修改</div>
         </div>
         <div class="btn query">
             <div class="text">查询</div>
+        </div>
+        <div class="btn query_all">
+            <div class="text">查询全部</div>
+        </div>
+        <!-- Modal HTML embedded directly into document -->
+        <div id="add" style="display:none;">
+            <div>
+                <span>姓名：</span>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <span>年龄：</span>
+                <input type="text" id="age">
+            </div>
+            <div>
+                <span>性别：</span>
+                <input type="text" id="sex">
+            </div>
+            <a href="#add" rel="modal:close"><button id="addData">添加</button></a>
         </div>
     </div>
 
@@ -35,6 +62,7 @@
     <script src="./js/lib/bootstrap-tab.min.js"></script>
     <!-- Latest compiled and minified Locales -->
     <script src="./js/lib/bootstrap-table-zh-CN.js"></script>
+    <script src="./js/lib/jquery.modal.js"></script>
     <script src="./js/main.js"></script>
 </body>
 
